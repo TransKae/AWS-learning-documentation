@@ -26,3 +26,21 @@ Next is to create a bucket policy which will allow anyone to have read access to
 
 [source of the script was from this video](https://www.youtube.com/watch?v=Nzv-tzU-UAw)
 
+## Running the server
+
+Here, I diverged a little bit from what I had done previously and changed the port 8080 rule to be the default http port 80 rule as I realised that for my purposes, this was much easier than using a different port.
+
+To begin with, I installed git and Apache on to the EC2 instance shown below:
+![Image showing git install](images/git-install.png)
+![Image showing Apache install](images/httpd-install.png)
+
+I then cloned my website's repository and moved the files to the /var/www/html folder in the EC2 instance. This resulted in the folder looking like this when running ls:
+![Image showing ls command in http folder](images/http-ls.png)
+
+Now I enable and start the httpd (Apache) service to start hosting the contents of http on port 80 of my instance's public IP address:
+![Image showing httpd starting](images/httpd-start.png)
+
+Finally, I can go to a web browser and type in the public IPv4 address of my instance and my website appears as follows:
+![Image of my website](images/website-screenshot.png)
+
+All the images are hosted within my EC2 instance which is something that the S3 bucket would be useful for in the case that I had a larger website with more images or videos.
